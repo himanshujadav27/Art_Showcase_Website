@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Showcase - Artists</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400&display=swap" rel="stylesheet">
+    <style>
+        /* Styles as before */
+        body {
+            font-family: 'Lora',serif;
+            background-color: #FFB6C1;
+            color: #333;
+        }
+        .navbar {
+            background:#FFB6C1 ;
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid #e1e1e1;
+            position: relative; /* Ensure navbar is positioned */
+            z-index: 10; /* Higher z-index for navbar */
+        }
+        .navbar-brand {
+            font-family: 'Pacifico', cursive;;
+            font-size: 1.8rem;
+            color: #7D1B30 !important;
+        }
+        .dropdown-menu {
+        background-color: #7D1B30; /* Background for dropdown */
+        z-index: 20; /* Higher z-index for dropdown menu */
+        }
+        .artist-card {
+            background-color: #ffffff;
+            border: 1px solid #7D1B30;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .artist-img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        footer {
+            background: #7D1B30;
+            color: white;
+        }
+        footer a {
+            color: white;
+        }
+        .form-control {
+            border: 1px solid #7D1B30;
+            border-radius: 25px;
+            padding: 10px;
+        }
+
+        .form-control:focus {
+            border-color: #FFB6C1;
+            box-shadow: 0 0 5px rgba(255, 182, 193, 0.5);
+        }
+
+        .btn-outline-dark {
+            border-radius: 25px;
+        }
+        .artist-img {
+            width: 100%;
+            height: 400px; /* Set a fixed height */
+            object-fit: cover; /* This ensures images fill the area without distortion */
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="index.html">Art Showcase</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto md">
+    <!-- Search Bar -->
+        <form class="form-inline my-1 my-sm-0">
+            <input class="form-control mr-sm-1" type="search" placeholder="Search artworks..." aria-label="Search">
+            <button class="btn btn-outline-dark my-1 my-sm-0" type="submit">Search</button>
+        </form>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #7D1B30;" href="index.html"><i class="nav-link fas fa-home" style="color: #7D1B30;"></i>Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #7D1B30;" href="gallery.html"><i class="nav-link fas fa-images" style="color: #7D1B30;"></i>Gallery</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" style="color: #7D1B30;"  href="artists.html"><i class="nav-link fas fa-user" style="color: #7D1B30;"></i>Artists</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #7D1B30;" href="events.html"><i class="nav-link fas fa-calendar-alt" style="color: #7D1B30;"></i>Events</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #7D1B30;" href="purchase.html">
+                        <i class="nav-link fas fa-shopping-cart" style="color: #7D1B30;"></i>Purchase Art</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #7D1B30;" href="about.html"><i class="nav-link fas fa-info-circle" style="color: #7D1B30;"></i>About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #7D1B30;" href="contact.html"><i class="nav-link fas fa-envelope" style="color: #7D1B30;"></i>Contact</a>
+                </li>
+                <!-- Profile Dropdown -->
+                <li class="nav-item dropdown mr-4">
+                    <a class="nav-link dropdown-toggle" style="color: #7D1B30;" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" >
+                        <i class="nav-link fas fa-user" style="color: #7D1B30;"></i>Profile</a>
+                    <div class="dropdown-menu" id="profileDropdown" style="background-color: #7D1B30;">
+                        <a class="dropdown-item" style="color: #FFB6C1;" href="signup.html">Sign Up</a>
+                        <a class="dropdown-item" style="color: #FFB6C1;" href="signin.html">Sign In</a>
+                        <a class="dropdown-item" style="color: #FFB6C1;" href="settings.html">Settings</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Artists Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center" style="color: #7D1B30;">Featured Artists</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="artist-card">
+                        <img src="images/ARTIST1.jpeg" class="artist-img" alt="Artist 1">
+                        <h4 class="mt-3">Leonardo da Vinci</h4>
+                        <h4 class="mt-3">1452–1519</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="artist-card">
+                        <img src="images/ARTIST2.jpeg" class="artist-img" alt="Artist 2">
+                        <h4 class="mt-3">Pablo Picasso</h4>
+                        <h4 class="mt-3">1881–1973</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="artist-card">
+                        <img src="images/ARTIST3.jpeg" class="artist-img" alt="Artist 3">
+                        <h4 class="mt-3">Claude Monet</h4>
+                        <h4 class="mt-3">1840–1926</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="artist-card">
+                        <img src="images/ARTIST4.jpeg"  class="artist-img" alt="Artist 3">
+                        <h4 class="mt-3">Vincent van Gogh</h4>
+                        <h4 class="mt-3">1853–1890</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="artist-card">
+                        <img src="images/ARTIST5.jpeg"  class="artist-img" alt="Artist 3">
+                        <h4 class="mt-3">Michelangelo</h4>
+                        <h4 class="mt-3">1475–1564</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="artist-card">
+                        <img src="images/ARTIST6.jpeg"  class="artist-img" alt="Artist 3">
+                        <h4 class="mt-3">Rembrandt</h4>
+                        <h4 class="mt-3">1606–1669</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="artist-card">
+                        <img src="images/ARTIST7.jpeg"  class="artist-img" alt="Artist 3">
+                        <h4 class="mt-3">Salvador Dalí</h4>
+                        <h4 class="mt-3">1904–1989</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="artist-card">
+                        <img src="images/ARTIST8.jpeg" class="artist-img" alt="Artist 3">
+                        <h4 class="mt-3">Johannes Vermeer</h4>
+                        <h4 class="mt-3">1632–1675</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="artist-card">
+                        <img src="images/ARTIST9.jpeg" class="artist-img" alt="Artist 3">
+                        <h4 class="mt-3">Frida Kahlo</h4>
+                        <h4 class="mt-3">1907–1954</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="artist-card">
+                        <img src="images/ARTIST10.jpeg" class="artist-img" alt="Artist 3">
+                        <h4 class="mt-3">Henri Matisse</h4>
+                        <h4 class="mt-3">1869–1954</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="artist-card">
+                        <img src="images/ARTIST11.jpeg" class="artist-img" alt="Artist 3">
+                        <h4 class="mt-3">Edvard Munch</h4>
+                        <h4 class="mt-3">1863–1944</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="artist-card">
+                        <img src="images/ARTIST12.jpeg" class="artist-img" alt="Artist 3">
+                        <h4 class="mt-3">Andy Warhol</h4>
+                        <h4 class="mt-3">1928–1987</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="artist-card">
+                        <img src="images/ARTIST13.jpeg" class="artist-img" alt="Artist 3">
+                        <h4 class="mt-3">Raphael</h4>
+                        <h4 class="mt-3">1483–1520</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="artist-card">
+                        <img src="images/ARTIST14.jpeg" class="artist-img" alt="Artist 3">
+                        <h4 class="mt-3">Jackson Pollock</h4>
+                        <h4 class="mt-3">1912–1956</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="artist-card">
+                        <img src="images/ARTIST15.jpeg" class="artist-img" alt="Artist 3">
+                        <h4 class="mt-3">Gustav Klimt</h4>
+                        <h4 class="mt-3">1862–1918</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="artist-card">
+                        <img src="images/ARTIST16.jpeg" class="artist-img" alt="Artist 3">
+                        <h4 class="mt-3">Georgia O'Keeffe</h4>
+                        <h4 class="mt-3">1887–1986</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="artist-card">
+                        <img src="images/ARTIST17.jpeg" class="artist-img" alt="Artist 3">
+                        <h4 class="mt-3">Paul Cézanne</h4>
+                        <h4 class="mt-3">1839–1906</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="artist-card">
+                        <img src="images/ARTIST18.jpeg" class="artist-img" alt="Artist 3">
+                        <h4 class="mt-3">René Magritte</h4>
+                        <h4 class="mt-3">1898–1967</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="artist-card">
+                        <img src="images/ARTIST19.jpeg" class="artist-img" alt="Artist 3">
+                        <h4 class="mt-3">Pierre-Auguste Renoir</h4>
+                        <h4 class="mt-3">1841–1919</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="artist-card">
+                        <img src="images/ARTIST20.jpeg" class="artist-img" alt="Artist 3">
+                        <h4 class="mt-3">Sandro Botticelli</h4>
+                        <h4 class="mt-3">1445–1510</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="artist-card">
+                        <img src="images/ARTIST21.jpeg" class="artist-img" alt="Artist 3">
+                        <h4 class="mt-3">Eugène Delacroix</h4>
+                        <h4 class="mt-3">1798–1863</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="text-center">
+        <p>&copy; 2024 Art Showcase. All rights reserved.</p>
+        <div>
+            <a href="#" class="mx-2"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="mx-2"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="mx-2"><i class="fab fa-twitter"></i></a>
+        </div>
+    </footer>
+
+    <script src="css/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

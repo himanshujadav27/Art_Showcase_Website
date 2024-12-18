@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Showcase - Portfolio</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400&display=swap" rel="stylesheet">
+    <style>
+        /* Styles as before */ 
+        body {
+            font-family: 'Lora',serif;
+            background-color: #FFB6C1;
+            color: #333;
+        }
+        .navbar {
+            background:#FFB6C1 ;
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid #e1e1e1;
+            position: relative; /* Ensure navbar is positioned */
+            z-index: 10; /* Higher z-index for navbar */
+        }
+        .navbar-brand {
+            font-family: 'Pacifico', cursive;;
+            font-size: 1.8rem;
+            color: #7D1B30 !important;
+        }
+        .dropdown-menu {
+        background-color: #7D1B30; /* Background for dropdown */
+        z-index: 20; /* Higher z-index for dropdown menu */
+        }
+        .gallery-header {
+            background: url('images/gallery-hero.jpg') no-repeat center center;
+            background-size: cover;
+            color: #FFB6C1;
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .gallery-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+        }
+        .hero {
+            background: url('images/heroimage.png.jpeg') no-repeat center center;
+            background-size: cover;
+            color: #FFB6C1;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+        }
+
+        footer {
+            background: #7D1B30;
+            color: white;
+
+        }
+        footer a {
+            color: white;
+        }
+        .form-control {
+            border: 1px solid #7D1B30;
+            border-radius: 25px;
+            padding: 10px;
+        }
+
+        .form-control:focus {
+            border-color: #FFB6C1;
+            box-shadow: 0 0 5px rgba(255, 182, 193, 0.5);
+        }
+
+        .btn-outline-dark {
+            border-radius: 25px;
+        }
+
+    </style>
+</head>
+<body>
+        <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="index.html">Art Showcase</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+    <!-- Search Bar -->
+        <form class="form-inline my-1 my-sm-0">
+            <input class="form-control mr-sm-1" type="search" placeholder="Search artworks..." aria-label="Search">
+            <button class="btn btn-outline-dark my-1 my-sm-0" type="submit">Search</button>
+        </form>
+                <li class="nav-item active">
+                    <a class="nav-link" style="color: #7D1B30;" href="index.html"><i class="nav-link fas fa-home" style="color: #7D1B30;"></i>Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #7D1B30;" href="gallery.html"><i class="nav-link fas fa-images" style="color: #7D1B30;"></i>Gallery</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" style="color: #7D1B30;"  href="artists.html"><i class="nav-link fas fa-user" style="color: #7D1B30;"></i>Artists</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #7D1B30;" href="events.html"><i class="nav-link fas fa-calendar-alt" style="color: #7D1B30;"></i>Events</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #7D1B30;" href="purchase.html">
+                        <i class="nav-link fas fa-shopping-cart" style="color: #7D1B30;"></i>Purchase Art
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #7D1B30;" href="about.html"><i class="nav-link fas fa-info-circle" style="color: #7D1B30;"></i>About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #7D1B30;" href="contact.html"><i class="nav-link fas fa-envelope" style="color: #7D1B30;"></i>Contact</a>
+                </li>
+                <!-- Profile Dropdown -->
+                <li class="nav-item dropdown mr-4">
+                    <a class="nav-link dropdown-toggle" style="color: #7D1B30;" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" >
+                        <i class="nav-link fas fa-user" style="color: #7D1B30;"></i>Profile
+                    </a>
+                    <div class="dropdown-menu" id="profileDropdown" style="background-color: #7D1B30;">
+                        <a class="dropdown-item" style="color: #FFB6C1;" href="signup.html">Sign Up</a>
+                        <a class="dropdown-item" style="color: #FFB6C1;" href="signin.html">Sign In</a>
+                        <a class="dropdown-item" style="color: #FFB6C1;" href="settings.html">Settings</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--  Gallery Header -->
+    <header class="hero">
+        <div>
+            <h1>Art Gallery</h1>
+        </div>
+    </header>
+<!-- Gallery Section -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-4" style="color: #7D1B30; font-family: 'Playfair Display',serif;"">Our Collection</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/F_ART10.jpg" height="300px" style="object-fit: cover;"  alt="Gallery Artwork 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Artwork 1</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/F_ART11.jpg" height="300px" style="object-fit: cover;" alt="Gallery Artwork 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Artwork 2</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/F_ART12.jpg" height="300px" style="object-fit: cover;" alt="Gallery Artwork 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Artwork 3</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/F_ART23.jpeg" height="300px" style="object-fit: cover;" alt="Gallery Artwork 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Artwork 4</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/F_ART14.jpg" height="300px" style="object-fit: cover;" alt="Gallery Artwork 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Artwork 5</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/F_ART16.jpg" height="300px" style="object-fit: cover;" alt="Gallery Artwork 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Artwork 6</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/F_ART15.jpg" height="300px" style="object-fit: cover;" alt="Gallery Artwork 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Artwork 7</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/F_ART17.jpg" height="300px" style="object-fit: cover;" alt="Gallery Artwork 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Artwork 8</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/F_ART18.jpg" height="300px" style="object-fit: cover;" alt="Gallery Artwork 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Artwork 9</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/F_ART19.jpg" height="300px" style="object-fit: cover;" alt="Gallery Artwork 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Artwork 10</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/F_ART20.jpg" height="300px" style="object-fit: cover;" alt="Gallery Artwork 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Artwork 11</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/F_ART21.jpg" height="300px" style="object-fit: cover;" alt="Gallery Artwork 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Artwork 12</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/F_ART22.jpg" height="300px" style="object-fit: cover;" alt="Gallery Artwork 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Artwork 13</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/F_ART13.jpg" height="300px" style="object-fit: cover;" alt="Gallery Artwork 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Artwork 14</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/F_ART24.jpeg.avif" height="300px" style="object-fit: cover;" alt="Gallery Artwork 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Artwork 15</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/F_ART25.jpg" height="300px" style="object-fit: cover;" alt="Gallery Artwork 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Artwork 16</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/F_ART26.jpg" height="300px" style="object-fit: cover;" alt="Gallery Artwork 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Artwork 17</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/F_ART27.jpg" height="300px" style="object-fit: cover;" alt="Gallery Artwork 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Artwork 18</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/F_ART28.jpg" height="300px" style="object-fit: cover;" alt="Gallery Artwork 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Artwork 19</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/F_ART29.jpg" height="300px" style="object-fit: cover;" alt="Gallery Artwork 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Artwork 20</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/F_ART30.jpg" height="300px" style="object-fit: cover;" alt="Gallery Artwork 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Artwork 21</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/F_ART31.jpg" height="300px" style="object-fit: cover;" alt="Gallery Artwork 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Artwork 22</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/F_ART32.jpg" height="300px" style="object-fit: cover;" alt="Gallery Artwork 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Artwork 23</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/F_ART33.jpg" height="300px" style="object-fit: cover;" alt="Gallery Artwork 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Artwork 24</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/F_ART34.jpg" height="300px" style="object-fit: cover;" alt="Gallery Artwork 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Artwork 25</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/F_ART35.jpg" height="300px" style="object-fit: cover;" alt="Gallery Artwork 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Artwork 26</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/F_ART37.jpg" height="300px" style="object-fit: cover;" alt="Gallery Artwork 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Artwork 27</h5>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more artworks as needed -->
+        </div>
+    </div>
+</section>
+    <footer class="text-center py-4">
+        <p>&copy; 2024 Art Showcase. All rights reserved.</p>
+        <div>
+            <a href="#" class="mx-2"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="mx-2"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="mx-2"><i class="fab fa-twitter"></i></a>
+        </div>
+    </footer>
+
+    <script src="css/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
